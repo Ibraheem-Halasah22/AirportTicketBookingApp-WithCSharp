@@ -1,4 +1,5 @@
-﻿using FilePersistence.API.FilesTypesInterfaces;
+﻿using FilePersistence.API.Exceptions;
+using FilePersistence.API.FilesTypesInterfaces;
 
 namespace FilePersistence.API.CSVFilesImplementations;
 
@@ -12,8 +13,9 @@ public class CSVFilePersistence<TEntityType> : ICSVFilePersistence<TEntityType>
     }
     public void AddEntity(TEntityType entity)
     {
-        var currentElements = this._dataSource.ReadDataFromCsv();
-        
+        if (IsEntityExist(entity)) throw new EntityAlreadyExistException();
+        var currentElements = this._dataSource.ReadDataFromCsv().ToList();
+        currentElements.Add(entity);
     }
 
    
@@ -25,6 +27,11 @@ public class CSVFilePersistence<TEntityType> : ICSVFilePersistence<TEntityType>
     public void UpdateEntity(TEntityType entity)
     {
         throw new NotImplementedException();
+    }
+
+    public bool IsEntityExist(TEntityType entity)
+    {
+        return this._dataSource.ReadDataFromCsv().Contains(entity);
     }
 
     public void DeleteEntity(TEntityType entity)
