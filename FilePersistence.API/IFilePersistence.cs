@@ -6,7 +6,7 @@ public interface IFilePersistence<TEntityType>
     
     IEnumerable<TEntityType> GetAll();
 
-    void UpdateEntity(TEntityType entity);
+    void UpdateEntity(TEntityType entity, TEntityType updatedEntity);
 
     void DeleteEntity(TEntityType entity);
 

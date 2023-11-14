@@ -16,17 +16,24 @@ public class CSVFilePersistence<TEntityType> : ICSVFilePersistence<TEntityType>
         if (IsEntityExist(entity)) throw new EntityAlreadyExistException();
         var currentElements = this._dataSource.ReadDataFromCsv().ToList();
         currentElements.Add(entity);
+        this._dataSource.WriteDataToCsv(currentElements);
+            
     }
 
    
     public IEnumerable<TEntityType> GetAll()
     {
-        throw new NotImplementedException();
+        return this._dataSource.ReadDataFromCsv();
     }
 
-    public void UpdateEntity(TEntityType entity)
+    public void UpdateEntity(TEntityType entity, TEntityType updatedEntity)
     {
-        throw new NotImplementedException();
+        if (!IsEntityExist(entity)) throw new EntityNotFoundException();
+        var currentElements = this._dataSource.ReadDataFromCsv().ToList();
+        var index = currentElements.FindIndex(item => entity.Equals(item));
+        currentElements[index] = updatedEntity;
+        this._dataSource.WriteDataToCsv(currentElements);
+
     }
 
     public bool IsEntityExist(TEntityType entity)
@@ -36,6 +43,10 @@ public class CSVFilePersistence<TEntityType> : ICSVFilePersistence<TEntityType>
 
     public void DeleteEntity(TEntityType entity)
     {
-        throw new NotImplementedException();
+        if (!IsEntityExist(entity)) throw new EntityNotFoundException();
+        var currentElements = this._dataSource.ReadDataFromCsv().ToList();
+        currentElements.Remove(entity);
+        this._dataSource.WriteDataToCsv(currentElements);
+
     }
 }
