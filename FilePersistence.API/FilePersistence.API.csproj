@@ -7,4 +7,8 @@
         <RootNamespace>FilePersistance.API</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="30.0.1" />
+    </ItemGroup>
+
 </Project>
