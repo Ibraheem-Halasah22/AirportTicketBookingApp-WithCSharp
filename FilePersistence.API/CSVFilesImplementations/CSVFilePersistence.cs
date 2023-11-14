@@ -2,35 +2,32 @@
 
 namespace FilePersistence.API.CSVFilesImplementations;
 
-public class CSVFilePersistence<TId, TEntityType> : ICSVFilePersistence<TId, TEntityType>
+public class CSVFilePersistence<TEntityType> : ICSVFilePersistence<TEntityType>
 {
-    private string _filePath;
+    private CSVDataAccessor<TEntityType> _dataSource;
 
     public CSVFilePersistence(string path)
     {
-        this._filePath = path;
+        this._dataSource = new(path);
     }
-    public void Create(TEntityType entity)
+    public void AddEntity(TEntityType entity)
     {
-        throw new NotImplementedException();
+        var currentElements = this._dataSource.ReadDataFromCsv();
+        
     }
 
-    public TEntityType ReadById(TId id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(TId id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(TId id)
-    {
-        throw new NotImplementedException();
-    }
-
+   
     public IEnumerable<TEntityType> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateEntity(TEntityType entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteEntity(TEntityType entity)
     {
         throw new NotImplementedException();
     }
