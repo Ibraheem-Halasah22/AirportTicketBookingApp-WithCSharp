@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModeling.Library", "Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilePersistence.API", "FilePersistence.API\FilePersistence.API.csproj", "{2E7B9DE4-DCA4-4E42-905F-E74BFF051199}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{6A2EDBA7-B626-4F0C-BB77-27FA81DCD693}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{2E7B9DE4-DCA4-4E42-905F-E74BFF051199}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7B9DE4-DCA4-4E42-905F-E74BFF051199}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7B9DE4-DCA4-4E42-905F-E74BFF051199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2EDBA7-B626-4F0C-BB77-27FA81DCD693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2EDBA7-B626-4F0C-BB77-27FA81DCD693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2EDBA7-B626-4F0C-BB77-27FA81DCD693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2EDBA7-B626-4F0C-BB77-27FA81DCD693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
